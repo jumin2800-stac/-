@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>리버스 대전 | 대전 스토리 디자이너</title>
+    <title>로컬 메이커스 & 익스체인지 코디네이터</title>
     <style>
         * {
             margin: 0;
@@ -12,709 +12,503 @@
         }
 
         body {
-            font-family: 'Pretendard Variable', -apple-system, BlinkMacSystemFont, system-ui, Roboto, sans-serif;
-            background: #0a0a0a;
-            color: #e0e0e0;
-            line-height: 1.7;
-            overflow-x: hidden;
+            font-family: 'Pretendard', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+            line-height: 1.8;
+            color: #333;
+            background: #fff;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
         }
 
         /* Navigation */
         nav {
-            position: fixed;
+            position: sticky;
             top: 0;
-            width: 100%;
-            background: rgba(10, 10, 10, 0.95);
-            backdrop-filter: blur(10px);
-            padding: 1.2rem 2rem;
+            background: rgba(255, 255, 255, 0.98);
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
             z-index: 1000;
-            border-bottom: 1px solid rgba(255, 107, 107, 0.1);
+            padding: 20px 0;
         }
 
-        nav ul {
+        nav .container {
             display: flex;
             justify-content: center;
-            gap: 2.5rem;
-            list-style: none;
+            gap: 40px;
             flex-wrap: wrap;
         }
 
         nav a {
-            color: #b0b0b0;
+            color: #00703C;
             text-decoration: none;
-            font-size: 0.95rem;
-            font-weight: 500;
-            transition: all 0.3s ease;
-            position: relative;
+            font-weight: 600;
+            font-size: 16px;
+            transition: color 0.3s;
         }
 
         nav a:hover {
-            color: #FF6B6B;
-        }
-
-        nav a::after {
-            content: '';
-            position: absolute;
-            bottom: -5px;
-            left: 0;
-            width: 0;
-            height: 2px;
-            background: #FF6B6B;
-            transition: width 0.3s ease;
-        }
-
-        nav a:hover::after {
-            width: 100%;
+            color: #FFC300;
         }
 
         /* Hero Section */
         .hero {
-            min-height: 100vh;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
+            background: linear-gradient(135deg, rgba(0, 112, 60, 0.9), rgba(0, 112, 60, 0.7)), 
+                        url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 600"><rect fill="%23F2FFF7" width="1200" height="600"/><path fill="%2300703C" opacity="0.1" d="M0 300 Q300 200 600 300 T1200 300 V600 H0 Z"/></svg>');
+            background-size: cover;
+            background-position: center;
+            color: white;
+            padding: 120px 0;
             text-align: center;
-            padding: 8rem 2rem 4rem;
-            background: linear-gradient(135deg, #0a0a0a 0%, #1a1a1a 100%);
-            position: relative;
-            overflow: hidden;
-        }
-
-        .hero::before {
-            content: '';
-            position: absolute;
-            top: -50%;
-            right: -20%;
-            width: 600px;
-            height: 600px;
-            background: radial-gradient(circle, rgba(255, 107, 107, 0.15) 0%, transparent 70%);
-            animation: pulse 8s ease-in-out infinite;
-        }
-
-        .hero::after {
-            content: '';
-            position: absolute;
-            bottom: -30%;
-            left: -10%;
-            width: 500px;
-            height: 500px;
-            background: radial-gradient(circle, rgba(78, 205, 196, 0.1) 0%, transparent 70%);
-            animation: pulse 10s ease-in-out infinite reverse;
-        }
-
-        @keyframes pulse {
-            0%, 100% { transform: scale(1) translate(0, 0); opacity: 1; }
-            50% { transform: scale(1.1) translate(20px, 20px); opacity: 0.8; }
-        }
-
-        .hero-content {
-            position: relative;
-            z-index: 2;
-            max-width: 900px;
         }
 
         .hero h1 {
-            font-size: clamp(2rem, 5vw, 3.5rem);
-            font-weight: 800;
-            margin-bottom: 1.5rem;
-            line-height: 1.2;
-            background: linear-gradient(135deg, #ffffff 0%, #FF6B6B 100%);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-        }
-
-        .hero h2 {
-            font-size: clamp(1.2rem, 3vw, 1.8rem);
-            font-weight: 600;
-            color: #4ECDC4;
-            margin-bottom: 3rem;
-            line-height: 1.5;
-        }
-
-        .hero h2 span {
-            color: #FF6B6B;
+            font-size: 42px;
             font-weight: 700;
+            margin-bottom: 30px;
+            line-height: 1.4;
+        }
+
+        .hero .subtitle {
+            font-size: 24px;
+            margin-bottom: 50px;
+            line-height: 1.6;
+            font-weight: 400;
+        }
+
+        .cta-button {
+            display: inline-block;
+            background: #FFC300;
+            color: #333;
+            padding: 20px 50px;
+            font-size: 20px;
+            font-weight: 700;
+            text-decoration: none;
+            border-radius: 50px;
+            transition: all 0.3s;
+            box-shadow: 0 4px 20px rgba(255, 195, 0, 0.4);
+        }
+
+        .cta-button:hover {
+            background: #FFD700;
+            transform: translateY(-2px);
+            box-shadow: 0 6px 30px rgba(255, 195, 0, 0.6);
         }
 
         /* Section Styles */
         section {
-            padding: 6rem 2rem;
-            max-width: 1200px;
-            margin: 0 auto;
+            padding: 100px 0;
         }
 
-        .section-title {
-            font-size: clamp(1.8rem, 4vw, 2.5rem);
+        section:nth-child(even) {
+            background: #F2FFF7;
+        }
+
+        h2 {
+            font-size: 36px;
+            color: #00703C;
+            margin-bottom: 40px;
+            text-align: center;
             font-weight: 700;
-            margin-bottom: 1.5rem;
-            color: #ffffff;
-            text-align: center;
         }
 
-        .section-subtitle {
-            font-size: clamp(1rem, 2.5vw, 1.3rem);
-            color: #a0a0a0;
-            margin-bottom: 3rem;
-            text-align: center;
-            line-height: 1.6;
+        h3 {
+            font-size: 28px;
+            color: #00703C;
+            margin-bottom: 30px;
+            font-weight: 600;
+        }
+
+        p {
+            font-size: 18px;
+            margin-bottom: 20px;
+            line-height: 1.9;
         }
 
         /* Problem Section */
-        #problem {
-            background: linear-gradient(180deg, #0a0a0a 0%, #151515 100%);
-        }
-
-        .problem-list {
+        .problem-grid {
             display: grid;
-            gap: 2rem;
-            margin-top: 3rem;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 40px;
+            margin-top: 60px;
         }
 
-        .problem-item {
-            background: rgba(255, 255, 255, 0.03);
-            border: 1px solid rgba(255, 107, 107, 0.2);
-            border-radius: 16px;
-            padding: 2rem;
-            transition: all 0.4s ease;
-            position: relative;
-            overflow: hidden;
+        .problem-card {
+            background: white;
+            padding: 40px;
+            border-radius: 15px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
         }
 
-        .problem-item::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 4px;
-            height: 100%;
-            background: linear-gradient(180deg, #FF6B6B, #4ECDC4);
-            transform: scaleY(0);
-            transition: transform 0.4s ease;
+        .problem-card h4 {
+            font-size: 22px;
+            color: #00703C;
+            margin-bottom: 15px;
+            font-weight: 600;
         }
 
-        .problem-item:hover {
-            transform: translateX(10px);
-            border-color: rgba(255, 107, 107, 0.5);
-            background: rgba(255, 255, 255, 0.05);
-        }
-
-        .problem-item:hover::before {
-            transform: scaleY(1);
-        }
-
-        .problem-item p {
-            font-size: 1.1rem;
-            line-height: 1.7;
-            color: #d0d0d0;
-        }
-
-        .problem-conclusion {
-            margin-top: 3rem;
-            padding: 2rem;
-            background: rgba(78, 205, 196, 0.1);
-            border-left: 4px solid #4ECDC4;
-            border-radius: 8px;
-            font-size: 1.15rem;
-            line-height: 1.8;
-            color: #e0e0e0;
+        .problem-icon {
+            font-size: 48px;
+            margin-bottom: 20px;
         }
 
         /* Solution Section */
-        #solution {
-            background: #0a0a0a;
-        }
-
-        .solution-highlight {
-            background: linear-gradient(135deg, rgba(255, 107, 107, 0.15), rgba(78, 205, 196, 0.15));
-            border-radius: 20px;
-            padding: 3rem;
-            margin: 3rem 0;
-            border: 1px solid rgba(255, 107, 107, 0.3);
-        }
-
-        .value-prop {
+        .solution-grid {
             display: grid;
-            gap: 2rem;
-            margin-top: 2rem;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 40px;
+            margin-top: 60px;
         }
 
-        .value-item {
-            display: flex;
-            align-items: start;
-            gap: 1.5rem;
+        .solution-box {
+            background: white;
+            padding: 40px;
+            border-radius: 15px;
+            border-left: 5px solid #00703C;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
         }
 
-        .value-icon {
-            font-size: 1.5rem;
-            min-width: 40px;
-        }
-
-        .value-text h4 {
-            color: #FF6B6B;
-            font-size: 1.2rem;
-            margin-bottom: 0.5rem;
-        }
-
-        .value-text p {
-            color: #c0c0c0;
-            line-height: 1.7;
+        .solution-box h4 {
+            font-size: 22px;
+            color: #00703C;
+            margin-bottom: 15px;
+            font-weight: 600;
         }
 
         /* Benefits Section */
-        #benefits {
-            background: linear-gradient(180deg, #0a0a0a 0%, #151515 100%);
-        }
-
         .benefits-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 2.5rem;
-            margin-top: 3rem;
+            gap: 40px;
+            margin-top: 60px;
         }
 
         .benefit-card {
-            background: rgba(255, 255, 255, 0.03);
-            border-radius: 20px;
-            padding: 2.5rem;
-            transition: all 0.4s ease;
-            border: 1px solid transparent;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .benefit-card::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            height: 4px;
-            background: linear-gradient(90deg, #FF6B6B, #4ECDC4);
-            transform: scaleX(0);
-            transition: transform 0.4s ease;
-        }
-
-        .benefit-card:hover {
-            transform: translateY(-10px);
-            border-color: rgba(255, 107, 107, 0.3);
-            background: rgba(255, 255, 255, 0.05);
-            box-shadow: 0 20px 40px rgba(255, 107, 107, 0.2);
-        }
-
-        .benefit-card:hover::before {
-            transform: scaleX(1);
+            background: white;
+            padding: 40px;
+            border-radius: 15px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+            text-align: center;
         }
 
         .benefit-icon {
-            font-size: 3rem;
-            margin-bottom: 1.5rem;
+            font-size: 56px;
+            margin-bottom: 20px;
         }
 
-        .benefit-card h3 {
-            color: #FF6B6B;
-            font-size: 1.4rem;
-            margin-bottom: 1rem;
-        }
-
-        .benefit-card p {
-            color: #c0c0c0;
-            line-height: 1.7;
+        .benefit-card h4 {
+            font-size: 22px;
+            color: #00703C;
+            margin-bottom: 15px;
+            font-weight: 600;
         }
 
         /* Trust Section */
-        #trust {
-            background: #0a0a0a;
-        }
-
         .trust-content {
-            background: rgba(255, 255, 255, 0.03);
-            border-radius: 20px;
-            padding: 3rem;
-            margin-top: 2rem;
+            background: white;
+            padding: 50px;
+            border-radius: 15px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+            margin-top: 40px;
         }
 
         .trust-content ul {
             list-style: none;
-            padding-left: 0;
+            padding: 0;
         }
 
         .trust-content li {
-            padding: 1.2rem 0;
-            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
-            color: #d0d0d0;
-            line-height: 1.7;
+            font-size: 18px;
+            margin-bottom: 25px;
+            padding-left: 30px;
+            position: relative;
         }
 
-        .trust-content li:last-child {
-            border-bottom: none;
+        .trust-content li:before {
+            content: "✓";
+            position: absolute;
+            left: 0;
+            color: #00703C;
+            font-weight: bold;
+            font-size: 24px;
         }
 
-        .trust-content strong {
-            color: #4ECDC4;
+        /* Pricing Table */
+        .pricing-table {
+            background: white;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+            margin-top: 40px;
+        }
+
+        .pricing-table table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+        .pricing-table th {
+            background: #00703C;
+            color: white;
+            padding: 25px;
+            font-size: 20px;
             font-weight: 600;
         }
 
-        /* Pricing Section */
-        #pricing {
-            background: linear-gradient(180deg, #0a0a0a 0%, #151515 100%);
+        .pricing-table td {
+            padding: 25px;
+            font-size: 18px;
+            border-bottom: 1px solid #f0f0f0;
         }
 
-        .pricing-card {
-            background: linear-gradient(135deg, rgba(255, 107, 107, 0.1), rgba(78, 205, 196, 0.1));
-            border: 2px solid #FF6B6B;
-            border-radius: 24px;
-            padding: 3rem;
-            max-width: 600px;
-            margin: 3rem auto;
+        .pricing-table tr:last-child td {
+            border-bottom: none;
+        }
+
+        .pricing-table td:first-child {
+            font-weight: 600;
+            color: #00703C;
+            width: 30%;
+        }
+
+        .highlight {
+            color: #FFC300;
+            font-weight: 700;
+        }
+
+        /* Closing Section */
+        .closing {
             text-align: center;
+            padding: 100px 0;
+            background: linear-gradient(135deg, rgba(0, 112, 60, 0.05), rgba(0, 112, 60, 0.1));
         }
 
-        .pricing-badge {
-            display: inline-block;
-            background: #FF6B6B;
-            color: #ffffff;
-            padding: 0.5rem 1.5rem;
-            border-radius: 50px;
-            font-weight: 700;
-            margin-bottom: 2rem;
-            font-size: 0.9rem;
+        .closing h2 {
+            font-size: 38px;
+            margin-bottom: 30px;
         }
 
-        .pricing-details {
-            margin: 2rem 0;
+        .closing p {
+            font-size: 20px;
+            margin-bottom: 50px;
+            color: #555;
         }
 
-        .original-price {
-            text-decoration: line-through;
-            color: #707070;
-            font-size: 1.2rem;
-            margin-bottom: 0.5rem;
+        .contact-info {
+            margin-top: 50px;
+            font-size: 18px;
+            color: #666;
         }
 
-        .special-price {
-            font-size: 3rem;
-            font-weight: 800;
-            color: #4ECDC4;
-            margin-bottom: 0.5rem;
-        }
-
-        .discount-badge {
-            color: #FF6B6B;
-            font-weight: 700;
-            font-size: 1.1rem;
-        }
-
-        .benefits-list {
-            text-align: left;
-            margin: 2rem 0;
-            padding: 2rem;
-            background: rgba(0, 0, 0, 0.2);
-            border-radius: 12px;
-        }
-
-        .benefits-list li {
-            padding: 0.8rem 0;
-            color: #d0d0d0;
-            line-height: 1.6;
-        }
-
-        /* CTA Section */
-        #cta {
-            background: linear-gradient(135deg, #0a0a0a 0%, #1a1a1a 100%);
-            text-align: center;
-        }
-
-        .cta-content {
-            max-width: 800px;
-            margin: 0 auto;
-        }
-
-        .cta-buttons {
-            display: flex;
-            gap: 1.5rem;
-            justify-content: center;
-            flex-wrap: wrap;
-            margin-top: 3rem;
-        }
-
-        .btn {
-            padding: 1.2rem 3rem;
-            font-size: 1.1rem;
-            font-weight: 700;
-            border: none;
-            border-radius: 50px;
-            cursor: pointer;
-            transition: all 0.3s ease;
+        .contact-info a {
+            color: #00703C;
             text-decoration: none;
-            display: inline-block;
-        }
-
-        .btn-primary {
-            background: linear-gradient(135deg, #FF6B6B, #ff8787);
-            color: #ffffff;
-            box-shadow: 0 10px 30px rgba(255, 107, 107, 0.3);
-        }
-
-        .btn-primary:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 15px 40px rgba(255, 107, 107, 0.5);
-        }
-
-        .btn-secondary {
-            background: transparent;
-            color: #4ECDC4;
-            border: 2px solid #4ECDC4;
-        }
-
-        .btn-secondary:hover {
-            background: #4ECDC4;
-            color: #0a0a0a;
-            transform: translateY(-3px);
-        }
-
-        /* Footer */
-        footer {
-            background: #050505;
-            padding: 2rem;
-            text-align: center;
-            color: #707070;
-            border-top: 1px solid rgba(255, 255, 255, 0.05);
-        }
-
-        footer p {
-            margin: 0.5rem 0;
+            font-weight: 600;
         }
 
         /* Responsive */
         @media (max-width: 768px) {
-            nav ul {
-                gap: 1rem;
+            .hero h1 {
+                font-size: 32px;
+            }
+
+            .hero .subtitle {
+                font-size: 18px;
+            }
+
+            h2 {
+                font-size: 28px;
+            }
+
+            h3 {
+                font-size: 22px;
+            }
+
+            nav .container {
+                gap: 20px;
             }
 
             nav a {
-                font-size: 0.85rem;
+                font-size: 14px;
             }
+        }
 
-            section {
-                padding: 4rem 1.5rem;
-            }
-
-            .benefits-grid {
-                grid-template-columns: 1fr;
-            }
-
-            .cta-buttons {
-                flex-direction: column;
-                align-items: center;
-            }
-
-            .btn {
-                width: 100%;
-                max-width: 300px;
-            }
+        .quote {
+            background: #F2FFF7;
+            border-left: 4px solid #00703C;
+            padding: 25px 30px;
+            margin: 40px 0;
+            font-style: italic;
+            font-size: 19px;
+            color: #555;
         }
     </style>
 </head>
 <body>
-    <!-- Navigation -->
     <nav>
-        <ul>
-            <li><a href="#problem">문제</a></li>
-            <li><a href="#solution">솔루션</a></li>
-            <li><a href="#benefits">혜택</a></li>
-            <li><a href="#trust">신뢰</a></li>
-            <li><a href="#pricing">가격</a></li>
-            <li><a href="#cta">신청</a></li>
-        </ul>
+        <div class="container">
+            <a href="#problem">문제</a>
+            <a href="#solution">솔루션</a>
+            <a href="#benefits">가치</a>
+            <a href="#trust">신뢰</a>
+            <a href="#pricing">혜택</a>
+            <a href="#closing">참여</a>
+        </div>
     </nav>
 
-    <!-- Hero Section -->
-    <section class="hero">
-        <div class="hero-content">
-            <h1>"노잼 도시" 대전?<br>당신이 아직 진짜 대전을 만나지 못했을 뿐입니다.</h1>
-            <h2>이주 고민 끝! 외국인/이주민을 위한<br><span>[나만의 대전 지도]</span> 역설계 서비스</h2>
+    <div class="hero">
+        <div class="container">
+            <h1>잠들어 있던 40년의 기술,<br>이제 세상을 움직이는 새로운 가치로 깨어납니다</h1>
+            <p class="subtitle">당신의 숙련된 기술과 경험이, 국경을 초월한 교류와 만날 때<br>'고립'은 '존경받는 가치'로 승화됩니다</p>
+            <a href="#closing" class="cta-button">🔥 내 기술로 글로벌 교류의 주역되기!</a>
         </div>
-    </section>
+    </div>
 
-    <!-- Problem Section -->
     <section id="problem">
-        <h2 class="section-title">새로운 시작, 왜 하필 '대전'이어야 할까요?</h2>
-        <p class="section-subtitle">타겟 고객님, 대전 정착을 고민하며 이런 의문에 부딪히지는 않으셨나요?</p>
-        
-        <div class="problem-list">
-            <div class="problem-item">
-                <p>"모두가 '노잼 도시'라고 하는데, 문화적 고립감 없이 잘 정착할 수 있을까?"</p>
-            </div>
-            <div class="problem-item">
-                <p>"뻔한 관광지 말고, 현지인만 아는 <strong>진짜 매력</strong>과 <strong>이야기</strong>를 어디서 찾아야 할까?"</p>
-            </div>
-            <div class="problem-item">
-                <p>"외국인으로서, 또는 타지인으로서, 지역 커뮤니티에 녹아들 수 있는 채널이 있을까?"</p>
-            </div>
-        </div>
-
-        <div class="problem-conclusion">
-            <strong>정보는 넘치지만, '나만을 위한 경험'은 부족합니다.</strong> 대전은 과학과 행정만 있는 도시가 아닙니다. 단지 그 매력을 보여주는 정교한 내비게이션이 없었을 뿐입니다.
-        </div>
-    </section>
-
-    <!-- Solution Section -->
-    <section id="solution">
-        <h2 class="section-title">'리버스 대전': 당신의 라이프스타일을 대전과 100% 매칭합니다.</h2>
-        <p class="section-subtitle">저희는 단순한 여행 가이드가 아닙니다.</p>
-
-        <div class="solution-highlight">
-            <p style="font-size: 1.2rem; line-height: 1.8; color: #e0e0e0; margin-bottom: 2rem;">
-                고객님의 <strong style="color: #FF6B6B;">취향, 직업, 정주 목적</strong>을 심층 분석하여 대전의 숨겨진 장소, 사람, 스토리를 <strong style="color: #4ECDC4;">맞춤형으로 연결</strong>하는 '대전 스토리 디자이너'입니다.
-            </p>
-
-            <div class="value-prop">
-                <div class="value-item">
-                    <span class="value-icon">💎</span>
-                    <div class="value-text">
-                        <h4>핵심 가치 제안</h4>
-                        <p>"취향 기반, 지역 정주 만족도 극대화 큐레이션"</p>
-                    </div>
-                </div>
-                <div class="value-item">
-                    <span class="value-icon">⚡</span>
-                    <div class="value-text">
-                        <h4>차별점</h4>
-                        <p>'왜 대전인가?'에 대한 명확한 답변을 드립니다. (예: 미슐랭급 베이커리부터, 대청호 자전거길, 이공계 종사자를 위한 연구 커뮤니티 연결까지)</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Benefits Section -->
-    <section id="benefits">
-        <h2 class="section-title">당신이 '리버스 대전'을 통해 얻게 될 3가지 중요한 혜택</h2>
-
-        <div class="benefits-grid">
-            <div class="benefit-card">
-                <div class="benefit-icon">🚀</div>
-                <h3>[발견]: 취향 저격 맞춤형 정주 가이드</h3>
-                <p>단순 명소 나열이 아닌, '나만의 컨셉'에 맞춰 재설계된 대전의 숨겨진 장소와 경험 루트 제공. (예: 대전 근대 건축물 투어, 이공계 인력 네트워킹 스팟 등)</p>
-            </div>
-
-            <div class="benefit-card">
-                <div class="benefit-icon">🤝</div>
-                <h3>[연결]: 지역 전문가 및 커뮤니티 연결 다리</h3>
-                <p>취미/직업군이 유사한 현지인 및 전문가 그룹과의 1:1 오프라인 연결 세션 주선. 고립감을 해소하고 빠른 정착을 돕습니다.</p>
-            </div>
-
-            <div class="benefit-card">
-                <div class="benefit-icon">🗣️</div>
-                <h3>[소통]: 언어 및 문화 장벽 해소 코칭</h3>
-                <p>외국인 대상, 한국어/대전 방언 코칭을 포함한 현지 문화 이해 세션 제공. (타지인 대상, 대전 라이프 핵심 팁 제공)</p>
-            </div>
-        </div>
-    </section>
-
-    <!-- Trust Section -->
-    <section id="trust">
-        <h2 class="section-title">믿을 수 있는 '리버스 대전' 팀과 파트너십</h2>
-        <p class="section-subtitle">저희 팀은 대전에서 태어나고 자란 지역 전문가와 타지에서 이주하여 성공적으로 정착한 경험자로 구성된 '대전 스토리 디자이너' 그룹입니다.</p>
-
-        <div class="trust-content">
-            <ul>
-                <li><strong>MVP 계획:</strong> 2026년 1분기, 유성구 및 서구 지역 이주 예정 30명 대상 '맞춤형 정주 컨설팅' 베타 테스트 시작.</li>
-                <li><strong>협력 기관 (가상):</strong> 대전광역시 관광진흥과 (공간 정보 연계 협의 중), KAIST 국제교류처 (외국인 연구원 대상 정주 프로그램 협의 중).</li>
-                <li><strong>핵심 도구:</strong> 자체 개발한 '대전 스토리 데이터베이스(DSDB)' 기반의 정교한 큐레이션 알고리즘 활용.</li>
-            </ul>
-        </div>
-    </section>
-
-    <!-- Pricing Section -->
-    <section id="pricing">
-        <h2 class="section-title">가격 및 조건</h2>
-
-        <div class="pricing-card">
-            <div class="pricing-badge">🎉 초기 베타 테스터 (1기) 특별 혜택</div>
+        <div class="container">
+            <h2>퇴직 후, 나의 귀한 기술은 왜 그저 '추억'이 되어야 합니까?</h2>
+            <h3 style="text-align: center; margin-bottom: 60px;">지역 과학 단지 퇴직 기술자 및 손재주 시니어님의 마음 속 깊은 곳에 공감합니다</h3>
             
-            <div class="pricing-details">
-                <p style="color: #a0a0a0; margin-bottom: 1rem;">선착순 30명 한정</p>
-                <p class="original-price">정가: 350,000원</p>
-                <div class="special-price">99,000원</div>
-                <p class="discount-badge">약 70% 할인</p>
-                <p style="color: #909090; font-size: 0.9rem; margin-top: 1rem;">VAT 포함, 1인 기준 3주 과정</p>
+            <div class="problem-grid">
+                <div class="problem-card">
+                    <div class="problem-icon">⚙️</div>
+                    <h4>기술의 무덤</h4>
+                    <p>수십 년간 쌓은 숙련된 기술과 노하우가 은퇴와 동시에 지역 사회에서 잊혀지고, 누구에게도 전달되지 못한 채 사라지고 있습니다.</p>
+                </div>
+                <div class="problem-card">
+                    <div class="problem-icon">💭</div>
+                    <h4>외로움과 단절</h4>
+                    <p>새로운 지역 사회에 정착했으나, 진정으로 나를 필요로 하는 의미 있는 연결고리가 부족하여 무료함과 소외감을 느끼고 계십니다.</p>
+                </div>
+                <div class="problem-card">
+                    <div class="problem-icon">❓</div>
+                    <h4>가치의 상실</h4>
+                    <p>단순히 시간을 보내는 취미가 아닌, 나의 존재 가치와 자존감을 높일 수 있는 '진짜 일'을 찾고 계십니다.</p>
+                </div>
             </div>
 
-            <div class="benefits-list">
-                <h3 style="color: #FF6B6B; margin-bottom: 1rem; text-align: center;">베타 테스터 특전</h3>
-                <ul style="list-style: none; padding: 0;">
-                    <li>✓ <strong>풀 커스터마이징 가이드:</strong> 취향 기반 100% 맞춤형 '리버스 대전 지도' (PDF 및 인쇄본) 제공</li>
-                    <li>✓ <strong>전담 디자이너 배정:</strong> 1:1 심층 인터뷰 및 3주간의 전담 멘토링</li>
-                    <li>✓ <strong>지역 커뮤니티 초청:</strong> 현지 정착 선배와의 오프라인 환영 네트워킹 파티 (1회)</li>
+            <div class="quote">
+                우리는 '은퇴'를 '기술의 소멸'이 아닌, '글로벌 교류를 통한 가치 재창조의 시작'으로 재정의합니다.
+            </div>
+        </div>
+    </section>
+
+    <section id="solution">
+        <div class="container">
+            <h2>로컬 메이커스 & 익스체인지 코디네이터</h2>
+            <h3 style="text-align: center;">기술 전수와 문화 교류를 잇는 '제2의 현역'</h3>
+            <p style="text-align: center; font-size: 19px; margin-bottom: 60px;">우리는 지역 내 기술 숙련자(시니어)와 글로벌 문화 교류를 원하는 외국인을 연결하는<br>'기술 기반 로컬 교류 워크숍 프로그램'을 운영하며, 당신의 기술을 재조명합니다.</p>
+            
+            <div class="solution-grid">
+                <div class="solution-box">
+                    <h4>🔨 몰입형 로컬 메이킹</h4>
+                    <p>당신의 특화된 기술(목공, 전자, 섬유 등)을 활용하여 지역의 이야기와 특색을 담은 수공예 기념품을 제작하고, 기술적 깊이를 더합니다.</p>
+                </div>
+                <div class="solution-box">
+                    <h4>🌍 가치 있는 글로벌 익스체인지</h4>
+                    <p>제작 노하우를 외국인 관광객 및 이주 희망자(생활 영어 기반)에게 직접 전수하는 워크숍을 주도적으로 진행하며, 당신의 기술을 세계에 알립니다.</p>
+                </div>
+                <div class="solution-box">
+                    <h4>⚡ 활력 있는 삶의 재구성</h4>
+                    <p>단순한 봉사가 아닌, 기술 전수와 문화 교류라는 '새로운 직업적 역할'을 통해 활력과 사회적 존경을 되찾아 드립니다.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="benefits">
+        <div class="container">
+            <h2>당신의 삶에 찾아올 3가지 '명예로운 변화'</h2>
+            
+            <div class="benefits-grid">
+                <div class="benefit-card">
+                    <div class="benefit-icon">👑</div>
+                    <h4>존경받는 '기술 멘토' 역할 확보</h4>
+                    <p>오랜 경험을 바탕으로 '로컬 메이커스 멘토'라는 새로운 사회적 직함을 얻고, 세대와 국적을 초월한 존경과 감사 속에서 활동합니다.</p>
+                </div>
+                <div class="benefit-card">
+                    <div class="benefit-icon">💰</div>
+                    <h4>의미 있는 사회 참여와 소득</h4>
+                    <p>단순한 자원봉사가 아닌, 기술 전수와 워크숍 운영 참여에 따른 정당한 활동 수당을 지급받으며 경제적 활력을 되찾습니다.</p>
+                </div>
+                <div class="benefit-card">
+                    <div class="benefit-icon">🌏</div>
+                    <h4>글로벌 안목 및 자기 효능감 고취</h4>
+                    <p>해외 봉사 경험이 있는 코디네이터와 협력하며, 외국인 참여자에게 직접 기술과 문화를 소개하는 과정에서 최고의 자기 효능감을 경험합니다.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="trust">
+        <div class="container">
+            <h2>체계적인 MVP 계획과 신뢰할 수 있는 파트너십</h2>
+            
+            <div class="trust-content">
+                <ul>
+                    <li><strong>MVP(Minimum Viable Product) 계획:</strong> 초기 3개월간 '시니어 멘토 5명 X 외국인 15명' 대상의 파일럿 프로그램 운영을 통해 기술 전수 효과 및 교류 만족도를 데이터 기반으로 검증하며 시작합니다.</li>
+                    <li><strong>협력 파트너 (확보 예정):</strong> 지역 내 과학 기술 유관 기관과의 기술 인증 파트너십, 지역 관광/국제 교류 센터와의 안정적인 외국인 참가자 모집 채널 구축.</li>
                 </ul>
+                
+                <div class="quote" style="margin-top: 40px;">
+                    우리는 일회성 프로그램이 아닌, 지역 기술을 기반으로 한 '지속 가능한 글로벌 교류 모델'을 만듭니다.
+                </div>
             </div>
         </div>
     </section>
 
-    <!-- CTA Section -->
-    <section id="cta">
-        <div class="cta-content">
-            <h2 class="section-title">더 이상 '노잼 도시'라는 오해에 속지 마세요.</h2>
-            <p style="font-size: 1.3rem; line-height: 1.7; color: #d0d0d0; margin: 2rem 0;">
-                당신의 대전 라이프는 '리버스 대전'을 만나는 순간, 완전히 달라집니다.
-            </p>
-            <p style="font-size: 1.1rem; color: #a0a0a0; margin-bottom: 1rem;">
-                지금 바로, 평범한 도시를 '나만의 유일한 도시'로 역설계할 기회를 잡으세요.
-            </p>
+    <section id="pricing">
+        <div class="container">
+            <h2>1기 베타 테스터/기술 멘토 특별 모집</h2>
+            <h3 style="text-align: center;">명예로운 시작을 위한 선착순 기회 (5분 한정)</h3>
+            <p style="text-align: center; font-size: 19px; margin-bottom: 40px;">로컬 메이커스 & 익스체인지 코디네이터 1기 기술 멘토로 참여해주시는 분들께,<br>새로운 시작을 위한 최적의 조건을 제공합니다.</p>
+            
+            <div class="pricing-table">
+                <table>
+                    <tr>
+                        <th>조건</th>
+                        <th>파격적인 1기 혜택 내용</th>
+                    </tr>
+                    <tr>
+                        <td>참여 자격</td>
+                        <td>지역 내 퇴직 기술자 또는 10년 이상의 숙련된 수공예 기술 보유 시니어</td>
+                    </tr>
+                    <tr>
+                        <td>기술 멘토 활동 수당</td>
+                        <td>파일럿 프로그램 기간(3개월) 동안 <span class="highlight">총 150만원 상당의 활동 수당</span> 지급<br>(기술 검증 및 워크숍 운영 기여에 대한 정당한 보상)</td>
+                    </tr>
+                    <tr>
+                        <td>제작 환경 지원</td>
+                        <td>기념품 개발 및 제작을 위한 <span class="highlight">공동 작업 공간 및 프리미엄 재료</span> 전액 무상 지원</td>
+                    </tr>
+                    <tr>
+                        <td>교육 지원</td>
+                        <td>외국인 대상 워크숍 진행을 위한 <span class="highlight">맞춤형 코디네이팅/실무 영어</span> 교육 패키지 무상 제공</td>
+                    </tr>
+                </table>
+            </div>
 
-            <div class="cta-buttons">
-                <a href="#" class="btn btn-primary">나만의 대전 스토리 디자이너 신청하기<br><span style="font-size: 0.9rem;">99,000원 특가</span></a>
-                <a href="#" class="btn btn-secondary">문의하기</a>
+            <div class="quote" style="margin-top: 40px;">
+                선착순 5분 마감으로, 귀한 기술을 썩히지 않고 새로운 가치를 창출할 수 있는 명예로운 기회입니다.
             </div>
         </div>
     </section>
 
-    <!-- Footer -->
-    <footer>
-        <p><strong>리버스 대전</strong> | 대전 스토리 디자이너</p>
-        <p>🇰🇷 We design your 'real' Daejeon story.</p>
-    </footer>
+    <section id="closing" class="closing">
+        <div class="container">
+            <h2>망설이지 마세요.<br>당신의 기술이 글로벌 무대에서 가장 빛날 순간입니다.</h2>
+            <p>은퇴는 끝이 아니라, 새로운 형태의 '현역'으로 복귀하는 전환점입니다.<br>지금 바로 신청하여 당신의 기술이 지역과 세계를 잇는 중심이 되십시오.</p>
+            
+            <a href="#" class="cta-button">🌟 내 기술로 새로운 인생 시작하기!</a>
 
-    <script>
-        // Smooth scrolling
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function (e) {
-                e.preventDefault();
-                const target = document.querySelector(this.getAttribute('href'));
-                if (target) {
-                    target.scrollIntoView({
-                        behavior: 'smooth',
-                        block: 'start'
-                    });
-                }
-            });
-        });
-
-        // Intersection Observer for animations
-        const observerOptions = {
-            threshold: 0.1,
-            rootMargin: '0px 0px -100px 0px'
-        };
-
-        const observer = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.style.opacity = '1';
-                    entry.target.style.transform = 'translateY(0)';
-                }
-            });
-        }, observerOptions);
-
-        // Animate sections on scroll
-        document.querySelectorAll('section').forEach(section => {
-            section.style.opacity = '0';
-            section.style.transform = 'translateY(30px)';
-            section.style.transition = 'opacity 0.8s ease, transform 0.8s ease';
-            observer.observe(section);
-        });
-    </script>
+            <div class="contact-info">
+                <p><strong>궁금하신 점이 있나요?</strong></p>
+                <p>📞 문의 전화: <a href="tel:070-XXXX-XXXX">070-XXXX-XXXX</a> (평일 9:00 ~ 18:00)</p>
+                <p>📧 <a href="mailto:info@example.com">이메일 상담 요청하기</a></p>
+            </div>
+        </div>
+    </section>
 </body>
 </html>
